@@ -11,9 +11,12 @@ using namespace std;
 
 int main()
 {
-	int userGuess;
 	srand(time(NULL));
+	
+	int userGuess;
 	int computerGuess = rand() % 100 + 1;
+	
+	int numGuesses = 1;
 	
 	cout << "Enter your choice(integer):";
 	cin >> userGuess;
@@ -25,7 +28,10 @@ int main()
 			cout << "Too high, try again: ";
 		}
 		cin >> userGuess;
+		numGuesses++;
 	}
 	cout << "Congratulations, " << computerGuess << " was the number!" << endl;
+	cout << "It took " << numGuesses << " guesses!" << endl;
+	
 	return 0;
 }
