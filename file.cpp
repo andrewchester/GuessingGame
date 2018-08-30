@@ -13,6 +13,8 @@ int main()
 {
 	srand(time(NULL));
 	
+	START:
+	
 	int userGuess;
 	int computerGuess = rand() % 100 + 1;
 	
@@ -32,6 +34,14 @@ int main()
 	}
 	cout << "Congratulations, " << computerGuess << " was the number!" << endl;
 	cout << "It took " << numGuesses << " guesses!" << endl;
+	
+	char choice;
+	cout << "Would you like to play again(y/n)? ";
+	cin >> choice;
+	
+	if(choice == 'y'){
+		goto START;
+	}
 	
 	return 0;
 }
