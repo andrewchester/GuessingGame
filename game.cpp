@@ -23,6 +23,15 @@ int main()
 	
 	cout << "Enter your choice(integer):"; //First guess
 	cin >> userGuess;
+
+	while(cin.fail()) //While cin is not an integer, keep asking the user to input an integer
+	{
+	  cin.clear(); //clear cin
+	  cin.ignore(100, '\n');//Ignoring characters the user inputed
+	  cout << "Please enter an integer: ";
+	  cin >> userGuess;
+        }
+	
 	while(userGuess != computerGuess) //Loop through asking the user to guess until they get it right
 	{
 		//Give user hints based on if their number is higher or lower than the computer's one
@@ -32,6 +41,16 @@ int main()
 			cout << "Too high, try again: ";
 		}
 		cin >> userGuess;
+
+		//Same code as from before when it first got a guess from the user
+		while(cin.fail())
+		{
+		  cin.clear();
+		  cin.ignore(100, '\n');
+		  cout << "Please enter an integer: ";
+		  cin >> userGuess;
+		}
+		
 		numGuesses++; //Increment the number of guesses
 	}
 	//End of game  message
